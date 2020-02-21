@@ -1,0 +1,18 @@
+name: CD Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v1
