@@ -1,0 +1,48 @@
+{
+  "name": "elite-se.xyz",
+  "version": "1.0.0",
+  "description": "Elite-SE webpage",
+  "author": "Tobias Schmidt <tobias.schmidt@in.tum.de>, Dominik Horn <dominik.horn@tum.de>",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna run clean --stream && rm -rfv node_modules tsconfig.tsbuildinfo",
+    "postinstall": "patch-package",
+    "lint": "eslint './packages/*/src/**/*.{ts,d.ts}' --max-warnings 0",
+    "lint:fix": "eslint './packages/*/src/**/*.{ts,d.ts}' --fix",
+    "build": "tsc -b && lerna run webpack:build --stream",
+    "start": "lerna run production:start --stream",
+    "frontend:watch": "lerna run frontend:watch --stream"
+  },
+  "devDependencies": {
+    "@hot-loader/react-dom": "^16.11.0",
+    "@types/react": "^16.9.16",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^5.0.2",
+    "graphql": "^14.5.8",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "lerna": "^3.16.4",
+    "patch-package": "^6.2.0",
+    "prettier": "^1.18.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.18",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.0.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "resolutions": {},
+  "dependencies": {}
+}
