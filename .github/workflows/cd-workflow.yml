@@ -14,5 +14,31 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: 'Checkout repository'
-        uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: yarn install & build
+        run: |
+          yarn install
+          yarn build
+          mkdir deploy
+          cp CNAME deploy
+          cp LICENSE deploy
+          cp packages/frontend/dist/index.html deploy
+          cp packages/frontend/dist/frontend.bundle.js deploy
+
+      - name: Deploy webpage
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.GITHUB_PAGES }}
+          external_repository: elite-se/elite-se.github.io
+          publish_branch: master
+          publish_dir: deploy
+          user_email: action@github.com
+          user_name: GitHub Action
+          commit_message: 'deploy ${{ github.event.head_commit.message }}'
