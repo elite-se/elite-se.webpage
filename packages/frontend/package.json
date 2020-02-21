@@ -8,7 +8,7 @@
   "scripts": {
     "frontend:watch": "webpack-dev-server --mode development --color --hot --progress",
     "webpack:build": "webpack --mode production",
-    "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo, src/graphql/abs.fragments.graphql src/graphql/fragmentSchema.graphql src/graphql/graphql.types.ts"
+    "clean": "rm -rf dist/"
   },
   "devDependencies": {
     "@types/react": "^16.9.11",
