@@ -1,0 +1,29 @@
+{
+  "name": "elite-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "frontend:watch": "webpack-dev-server --mode development --color --hot --progress",
+    "webpack:build": "webpack --mode production",
+    "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo, src/graphql/abs.fragments.graphql src/graphql/fragmentSchema.graphql src/graphql/graphql.types.ts"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router": "^5.1.3",
+    "@types/react-router-dom": "^5.1.3",
+    "copy-webpack-plugin": "^5.1.1",
+    "react-hot-loader": "^4.12.18",
+    "replace": "^1.1.3",
+    "se-software-engineering-types": "^1.0.0"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  }
+}
