@@ -48,7 +48,6 @@ module.exports = {
     symlinks: true,
     alias: {
       'react-dom': '@hot-loader/react-dom',
-      'se-software-engineering-types': 'se-software-engineering-types/src',
     },
   },
   output: {
@@ -63,9 +62,6 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NormalModuleReplacementPlugin(/type-graphql$/, resource => {
-      resource.request = resource.request.replace(/type-graphql/, 'type-graphql/dist/browser-shim.js');
-    }),
   ],
   devServer: {
     hot: true,
