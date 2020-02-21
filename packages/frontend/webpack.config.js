@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -13,10 +12,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: {
-          loader: require.resolve('babel-loader'),
-          options: {
-            rootMode: 'upward',
-          },
+          loader: require.resolve('ts-loader')
         },
         exclude: /node_modules/,
       },
