@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { List } from '@material-ui/core';
-import { LinkListItem } from '../general/LinkListItem';
+import { RouteComponentProps } from 'react-router';
+import { LinkDirectory } from './support/LinkDirectory';
+import { Divider } from '@material-ui/core';
 
-export const HomePage = () => (
-  <List>
-    <LinkListItem href={"https://elite-se.informatik.uni-augsburg.de"} title={"Main Webpage"} />
-    <LinkListItem href={"https://github.com/elite-se/elite-se.protokolle"} title={"Exam Protocols"} />
-  </List>
+export interface HomePageProps extends RouteComponentProps {}
+
+export const HomePage = (props: HomePageProps) => (
+  <>
+    <h1>Main Page</h1>
+    Elite Sexyz is currently under construction. See discord main channel for more information
+    <Divider />
+    <LinkDirectory />
+  </>
 );
