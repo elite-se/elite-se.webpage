@@ -99,3 +99,5 @@ out
 gen
 dist
 
+# Mac OS
+.DS_Store
