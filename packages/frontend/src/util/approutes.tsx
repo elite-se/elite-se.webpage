@@ -12,6 +12,9 @@ export interface AppRouteProps extends RouteProps {
   // i.e., if the path url contains paramter specifications etc
   readonly link?: LinkType;
 
+  // link text (Human readable!)
+  readonly linkDisplayName?: string;
+
   // AppRoutes must have a path - deoptionalize this property
   readonly path: string;
 }
@@ -26,6 +29,16 @@ export function getLinkForPage(route: AppRouteProps): LinkType {
 }
 
 /**
+ * Retrieves the humand readable link title/displayed name
+ * for a given route 
+ * 
+ * @param route
+ */
+export function getLinkDisplayNameForPage(route: AppRouteProps): string {
+  return route.linkDisplayName || getLinkForPage(route);
+}
+
+/**
  * Specify all pages in this file by defining
  * a pages route props and adding it to the
  * available APP_ROUTES array
@@ -34,12 +47,14 @@ export function getLinkForPage(route: AppRouteProps): LinkType {
 // Landing/Home page
 export const HOME_PAGE: AppRouteProps = {
   path: '/home',
+  linkDisplayName: 'Home',
   render: props => <HomePage {...props} />
 };
 
 // Page with searchable, useful links for elite-se-degree program
 export const LINK_PAGE: AppRouteProps = {
   path: '/links',
+  linkDisplayName: 'Useful Links',
   render: props => <LinkPage {...props} />
 };
 

@@ -1,18 +1,15 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
-import { getLinkForPage, LINK_PAGE } from '../../util/approutes';
+import { LinkDirectory } from './support/LinkDirectory';
+import { Divider } from '@material-ui/core';
 
-export interface HomePageProps extends RouteComponentProps { }
+export interface HomePageProps extends RouteComponentProps {}
 
 export const HomePage = (props: HomePageProps) => (
-  <div>
-    This page is under construction
-    <br />
-    <ul>
-      <li>
-        <Link to={getLinkForPage(LINK_PAGE)}>Collection of Useful Links</Link>
-      </li>
-    </ul>
-  </div>
+  <>
+    <h1>Main Page</h1>
+    Elite Sexyz is currently under construction. See discord main channel for more information
+    <Divider />
+    <LinkDirectory />
+  </>
 );
