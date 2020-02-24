@@ -27,7 +27,6 @@ jobs:
           yarn install
           yarn build
           mkdir deploy
-          cp CNAME deploy
           cp LICENSE deploy
           cp packages/frontend/dist/index.html deploy
           cp packages/frontend/dist/frontend.bundle.js deploy
