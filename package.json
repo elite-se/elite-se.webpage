@@ -2,7 +2,7 @@
   "name": "elite-se.xyz",
   "version": "1.0.0",
   "description": "Elite-SE webpage",
-  "author": "Tobias Schmidt <tobias.schmidt@in.tum.de>, Dominik Horn <dominik.horn@tum.de>, Max Ammann <max@maxammann.org>",
+  "author": "Tobias Schmidt <tobias.schmidt@in.tum.de>, Dominik Horn <dominik.horn@tum.de>, Max Ammann <max@maxammann.org>, Henrik Wachowitz <henrik.wachowitz@tum.de>",
   "private": true,
   "workspaces": [
     "packages/*"
