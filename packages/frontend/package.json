@@ -7,8 +7,9 @@
   },
   "scripts": {
     "frontend:watch": "webpack-dev-server --mode development --color --hot --progress",
+    "frontend:start": "webpack-dev-server --mode production --color --progress",
     "webpack:build": "webpack --mode production",
-    "clean": "rm -rf dist/"
+    "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo"
   },
   "devDependencies": {
     "@types/react": "^16.9.11",
