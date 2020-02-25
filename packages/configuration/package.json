@@ -1,0 +1,16 @@
+{
+  "name": "elite-configuration",
+  "version": "1.0.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "elite-types": "^1.0.0"
+  }
+}
