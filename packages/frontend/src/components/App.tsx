@@ -4,14 +4,23 @@ import { Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
 import { APP_ROUTES, ERROR_404_PAGE } from '../util/approutes';
 import history from '../util/history';
+import { FeatureFlagsProvider } from 'elite-feature-flags';
+import { Configuration } from 'elite-types';
+import { getConfiguration } from 'elite-configuration';
+
+const configuration: Configuration = getConfiguration();
 
 export const AppComponent = () => (
-  <Router history={history}>
-    <Switch>
-      {APP_ROUTES.map((routeProps, index) => <Route key={index} {...routeProps} />)}
-      <Route {...ERROR_404_PAGE} />
-    </Switch>
-  </Router>
+  <FeatureFlagsProvider value={configuration.featureMap}>
+    <Router history={history}>
+      <Switch>
+        {APP_ROUTES.map((routeProps, index) => (
+          <Route key={index} {...routeProps} />
+        ))}
+        <Route {...ERROR_404_PAGE} />
+      </Switch>
+    </Router>
+  </FeatureFlagsProvider>
 );
 
 export const App = hot(module)(AppComponent);
