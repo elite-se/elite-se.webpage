@@ -1,8 +1,8 @@
-import * as H from 'history';
 import * as React from 'react';
 import { RouteProps, Redirect } from 'react-router';
 import { HomePage } from '../components/pages/HomePage';
 import { LinkPage } from '../components/pages/LinkPage';
+import { BelbinMatcherPage } from 'elite-belbin-matcher';
 
 // If necessary, add support for: H.LocationDescriptor | ((location: H.Location) => H.LocationDescriptor);
 type LinkType = string;
@@ -30,8 +30,8 @@ export function getLinkForPage(route: AppRouteProps): LinkType {
 
 /**
  * Retrieves the humand readable link title/displayed name
- * for a given route 
- * 
+ * for a given route
+ *
  * @param route
  */
 export function getLinkDisplayNameForPage(route: AppRouteProps): string {
@@ -48,14 +48,21 @@ export function getLinkDisplayNameForPage(route: AppRouteProps): string {
 export const HOME_PAGE: AppRouteProps = {
   path: '/home',
   linkDisplayName: 'Home',
-  render: props => <HomePage {...props} />
+  render: props => <HomePage {...props} />,
 };
 
 // Page with searchable, useful links for elite-se-degree program
 export const LINK_PAGE: AppRouteProps = {
   path: '/links',
   linkDisplayName: 'Useful Links',
-  render: props => <LinkPage {...props} />
+  render: props => <LinkPage {...props} />,
+};
+
+// Belbin matching tool
+export const BELBIN_PAGE: AppRouteProps = {
+  path: '/belbin',
+  linkDisplayName: 'Belbin Matching Tool',
+  render: props => <BelbinMatcherPage {...props} />,
 };
 
 // Simply redirect to the main page on 404
@@ -64,7 +71,4 @@ export const ERROR_404_PAGE: AppRouteProps = {
   render: () => <Redirect to={getLinkForPage(HOME_PAGE)} />,
 };
 
-export const APP_ROUTES: AppRouteProps[] = [
-  HOME_PAGE,
-  LINK_PAGE
-];
+export const APP_ROUTES: AppRouteProps[] = [HOME_PAGE, LINK_PAGE, BELBIN_PAGE];
