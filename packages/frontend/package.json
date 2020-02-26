@@ -6,9 +6,9 @@
     "access": "public"
   },
   "scripts": {
-    "frontend:watch": "webpack-dev-server --mode development --color --hot --progress",
-    "frontend:start": "webpack-dev-server --mode production --color --progress",
-    "webpack:build": "webpack --mode production",
+    "frontend:watch": "webpack-dev-server --mode development --color --hot --progress --config development.webpack.config.js",
+    "frontend:start": "webpack-dev-server --mode production --color --hot --progress --config development.webpack.config.js",
+    "webpack:build": "webpack --mode production --config production.webpack.config.js",
     "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo"
   },
   "devDependencies": {

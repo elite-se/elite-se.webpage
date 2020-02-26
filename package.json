@@ -8,11 +8,11 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "lerna run clean --stream && rm -rfv node_modules tsconfig.tsbuildinfo",
+    "clean": "lerna run clean --stream && rm -rfv tsconfig.tsbuildinfo",
     "postinstall": "patch-package",
     "lint": "eslint './packages/*/src/**/*.{ts,d.ts}' --max-warnings 0",
     "lint:fix": "eslint './packages/*/src/**/*.{ts,d.ts}' --fix",
-    "build": "tsc -b && lerna run webpack:build --stream",
+    "build": "lerna run webpack:build --stream",
     "frontend:start": "lerna run frontend:start --stream",
     "frontend:watch": "lerna run frontend:watch --stream",
     "watch": "tsc -b -w"
@@ -37,7 +37,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18",
-    "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",
