@@ -6,13 +6,15 @@ module.exports = {
   entry: {
     app: ['react-hot-loader/patch', './src/index.tsx'],
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: {
           loader: require.resolve('ts-loader'),
+          options: {
+            projectReferences: true,
+          },
         },
         exclude: /node_modules/,
       },
