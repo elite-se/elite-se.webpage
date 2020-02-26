@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router';
 import { Router } from 'react-router-dom';
-import { APP_ROUTES, ERROR_404_PAGE } from '../util/approutes';
 import history from '../util/history';
 import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
 import { getConfiguration } from 'elite-configuration';
+import { APP_ROUTES } from '../util/routing';
+
+// Files must be required for decorator to work
+require('../components/pages/HomePage');
+require('../components/pages/LinkPage');
 
 const configuration: Configuration = getConfiguration();
 
@@ -17,7 +21,8 @@ export const AppComponent = () => (
         {APP_ROUTES.map((routeProps, index) => (
           <Route key={index} {...routeProps} />
         ))}
-        <Route {...ERROR_404_PAGE} />
+        {/* Error 404 Fallback */}
+        <Redirect to={'/home'} />
       </Switch>
     </Router>
   </FeatureFlagsProvider>

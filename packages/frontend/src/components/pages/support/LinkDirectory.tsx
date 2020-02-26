@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { APP_ROUTES, getLinkDisplayNameForPage, getLinkForPage } from '../../../util/approutes';
+import { APP_ROUTES, getLinkForPage, getLinkDisplayNameForPage } from '../../../util/routing';
 
 export const LinkDirectory = () => (
   <ul>
