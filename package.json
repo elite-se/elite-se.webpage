@@ -13,8 +13,9 @@
     "lint": "eslint './packages/*/src/**/*.{ts,d.ts}' --max-warnings 0",
     "lint:fix": "eslint './packages/*/src/**/*.{ts,d.ts}' --fix",
     "build": "tsc -b && lerna run webpack:build --stream",
-    "start": "lerna run production:start --stream",
-    "frontend:watch": "lerna run frontend:watch --stream"
+    "frontend:start": "lerna run frontend:start --stream",
+    "frontend:watch": "lerna run frontend:watch --stream",
+    "watch": "tsc -b -w"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.11.0",

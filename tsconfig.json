@@ -5,6 +5,12 @@
       "path": "./packages/types"
     },
     {
+      "path": "./packages/configuration"
+    },
+    {
+      "path": "./packages/feature-flags"
+    },
+    {
       "path": "./packages/frontend"
     }
   ]
