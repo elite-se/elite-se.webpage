@@ -21,24 +21,6 @@ export interface AppRouteProps extends RouteProps {
 }
 
 /**
- * The Routed decorator automatically creates a route for
- * the annotated top level page component
- *
- * @param props route properties
- */
-export function Routed<T extends React.Component<P> & { render: () => any }, P = any>(
-  props: AppRouteProps,
-): (c: new (props: any) => T) => new (props: any) => T {
-  return constructor => (
-    registerAppRoute({
-      render: p => React.createElement(constructor, p),
-      ...props,
-    }),
-    constructor
-  );
-}
-
-/**
  * Container for all registered app routes
  */
 const appRoutes: { [path: string]: AppRouteProps } = {};

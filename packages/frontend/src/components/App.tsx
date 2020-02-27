@@ -7,13 +7,10 @@ import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
 import { getConfiguration } from 'elite-configuration';
 import { getAllRegisteredAppRoutes } from 'elite-routing';
-import { AppPaths } from '../util/routes';
+import { AppPaths, registerRoutes } from '../util/routes';
 
-// Files must be required (early!) for decorator to work
-// TODO: move to routes.ts
-require('../components/pages/HomePage');
-require('../components/pages/LinkPage');
-
+// Global bootstrap: install subsystems and load configuration
+registerRoutes();
 const configuration: Configuration = getConfiguration();
 
 export const AppComponent = () => (
