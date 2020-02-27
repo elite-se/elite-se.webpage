@@ -1,5 +1,5 @@
 {
-  "name": "elite-feature-flags",
+  "name": "elite-components",
   "version": "1.0.0",
   "private": true,
   "publishConfig": {
@@ -10,7 +10,7 @@
     "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo"
   },
   "devDependencies": {
-    "@types/react": "^16.9.11",
+    "@types/react": "^16.9.23",
     "elite-types": "^1.0.0"
   },
   "dependencies": {

@@ -8,7 +8,7 @@
       "path": "./packages/configuration"
     },
     {
-      "path": "./packages/feature-flags"
+      "path": "./packages/components"
     },
     {
       "path": "./packages/frontend"

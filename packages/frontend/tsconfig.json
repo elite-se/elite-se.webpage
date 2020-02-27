@@ -11,7 +11,7 @@
       "path": "../configuration"
     },
     {
-      "path": "../feature-flags"
+      "path": "../components"
     },
     {
       "path": "../decorators"
