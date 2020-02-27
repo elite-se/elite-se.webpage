@@ -9,6 +9,9 @@
   "scripts": {
     "clean": "rm -rf dist/ node_modules/ tsconfig.tsbuildinfo"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-router": "^5.1.4"
+  },
   "dependencies": {}
 }
