@@ -25,7 +25,7 @@ function renderError(error: Error): React.ReactNode {
  * Use by wrapping it around failable components in JSX
  * or use the withErrorBoundary(...) to wrap component components
  */
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
+export class ErrorBoundaryComponent extends React.Component<ErrorBoundaryProps, State> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {};
@@ -64,8 +64,8 @@ export function withErrorBoundary<TProps>(
   errorRenderer: (error: Error) => React.ReactNode = renderError,
 ): React.ComponentType<TProps> {
   return (props: TProps) => (
-    <ErrorBoundary errorRenderer={errorRenderer}>
+    <ErrorBoundaryComponent errorRenderer={errorRenderer}>
       <WrappedComponent {...props} />
-    </ErrorBoundary>
+    </ErrorBoundaryComponent>
   );
 }
