@@ -6,6 +6,7 @@ import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
 import history from '../util/history';
+import { ErrorBoundary } from './general/ErrorBoundary';
 import { AppPath, APP_ROUTES } from '../util/routes';
 
 // Global bootstrap: install subsystems and load configuration
@@ -16,7 +17,9 @@ export const AppComponent = () => (
     <Router history={history}>
       <Switch>
         {APP_ROUTES.map((routeProps, index) => (
-          <Route key={index} {...routeProps} />
+          <ErrorBoundary>
+            <Route key={index} {...routeProps} />
+          </ErrorBoundary>
         ))}
         {/* Error 404 Fallback */}
         <Redirect to={AppPath.HOME} />
