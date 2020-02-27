@@ -1,4 +1,13 @@
-import { createStyles, List, ListItem, ListItemText, makeStyles, SwipeableDrawer, Theme } from '@material-ui/core';
+import {
+  createStyles,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  SwipeableDrawer,
+  Theme,
+  ListItemIcon,
+} from '@material-ui/core';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { APP_ROUTES, getLinkForRoute, getDisplayNameForRoute } from 'util/routes';
@@ -28,6 +37,7 @@ export const RouteDrawer = (props: RouteDrawerProps) => {
         <List>
           {APP_ROUTES.map(route => (
             <ListItem button={true} key={getLinkForRoute(route)}>
+              {route.icon && <ListItemIcon>{route.icon}</ListItemIcon>}
               <Link to={getLinkForRoute(route)}>
                 <ListItemText primary={getDisplayNameForRoute(route)} />
               </Link>

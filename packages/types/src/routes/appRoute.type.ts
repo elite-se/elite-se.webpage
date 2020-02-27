@@ -14,8 +14,9 @@ export interface AppRoute extends RouteProps {
   // link text (Human readable!)
   readonly displayName?: string;
 
+  // optional icon displayed next to the link name
+  readonly icon?: JSX.Element;
+
   // AppRoutes must have a path - deoptionalize this property
   readonly path: AppPath;
-
-  render(props: any): any;
 }
