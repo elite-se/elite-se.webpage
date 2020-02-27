@@ -3,7 +3,7 @@ name: CD Workflow
 on:
   push:
     branches:
-      - master
+      - development
 
 jobs:
   build-and-deploy:
