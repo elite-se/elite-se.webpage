@@ -10,7 +10,8 @@ import {
 } from '@material-ui/core';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { APP_ROUTES, getLinkForRoute, getDisplayNameForRoute } from 'util/routes';
+import { APP_ROUTES, getLinkForRoute, getDisplayNameForRoute } from '../../../util/routes';
+import h from '../../../util/history';
 
 export interface RouteDrawerProps {
   readonly isOpen: boolean;
@@ -36,22 +37,12 @@ export const RouteDrawer = (props: RouteDrawerProps) => {
       <div className={classes.fullList} role={'presentation'} onClick={props.onClose} onKeyDown={props.onClose}>
         <List>
           {APP_ROUTES.map(route => (
-            <ListItem button={true} key={getLinkForRoute(route)}>
+            <ListItem button={true} key={getLinkForRoute(route)} onClick={() => h.push(getLinkForRoute(route))}>
               {route.icon && <ListItemIcon>{route.icon}</ListItemIcon>}
-              <Link to={getLinkForRoute(route)}>
-                <ListItemText primary={getDisplayNameForRoute(route)} />
-              </Link>
+              <ListItemText primary={getDisplayNameForRoute(route)} />
             </ListItem>
           ))}
         </List>
-        {/** TODO: bellow is testing code */}
-        {/* <Divider />
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button={true} key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))} */}
       </div>
     </SwipeableDrawer>
   );
