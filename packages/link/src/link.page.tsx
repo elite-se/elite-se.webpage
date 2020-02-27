@@ -21,7 +21,7 @@ export const LINK_ROUTE: AppRoute = {
 
 export const LinkPage = (props: LinkPageProps) => (
   <>
-    <h1>Useful Links List</h1>
+    {/* <NavigationBar /> */}
     <List>
       <LinkListItem href={'https://elite-se.informatik.uni-augsburg.de'} title={'Main Webpage'} />
       <LinkListItem href={'https://github.com/elite-se/elite-se.protokolle'} title={'Exam Protocols'} />

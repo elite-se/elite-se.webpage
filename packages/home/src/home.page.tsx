@@ -14,11 +14,14 @@ export const HOME_ROUTE: AppRoute = {
   render: props => <HomePage {...props} />,
 };
 
-export const HomePage = (props: HomePageProps) => (
-  <>
-    <h1>Main Page</h1>
-    <FeatureFlag featureName="under-construction-message">
-      Elite Sexyz is currently under construction. See discord main channel for more information
-    </FeatureFlag>
-  </>
-);
+export const HomePage = (props: HomePageProps) => {
+  return (
+    <>
+      {/* <NavigationBar /> */}
+
+      <FeatureFlag featureName="under-construction-message">
+        Elite Sexyz is currently under construction. See discord main channel for more information
+      </FeatureFlag>
+    </>
+  );
+};
