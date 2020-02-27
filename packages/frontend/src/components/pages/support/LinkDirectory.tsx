@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { getLinkForRoute, getDisplayNameForRoute, getAllRegisteredAppRoutes } from 'elite-routing';
+import { APP_ROUTES, getDisplayNameForRoute, getLinkForRoute } from '../../../util/routes';
 
 export const LinkDirectory = () => (
   <ul>
-    {getAllRegisteredAppRoutes().map((route, index) => (
+    {APP_ROUTES.map((route, index) => (
       <li key={index}>
         <Link to={getLinkForRoute(route)}>{getDisplayNameForRoute(route)}</Link>
       </li>
