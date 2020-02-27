@@ -5,8 +5,8 @@ export function Pre(condition: (...args: any[]) => boolean) {
       const context = this;
 
       if (!condition(args)) {
-        // TODO: better error message
-        throw new Error(`Precondition doesn't hold for ${target} ${propertyKey} ${descriptor}`);
+        console.trace(`Precondition violiation in ${target.constructor.name}.${propertyKey}(${args}):`);
+        throw new Error(`Precondition doesn't hold for ${target.constructor.name}.${propertyKey}(${args})`);
       }
 
       return originalMethod.apply(context, args);
