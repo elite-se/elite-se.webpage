@@ -7,6 +7,7 @@ import history from '../util/history';
 import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
 import { getConfiguration } from 'elite-configuration';
+import { ErrorBoundary } from './general/ErrorBoundary';
 
 const configuration: Configuration = getConfiguration();
 
@@ -15,7 +16,9 @@ export const AppComponent = () => (
     <Router history={history}>
       <Switch>
         {APP_ROUTES.map((routeProps, index) => (
-          <Route key={index} {...routeProps} />
+          <ErrorBoundary>
+            <Route key={index} {...routeProps} />
+          </ErrorBoundary>
         ))}
         <Route {...ERROR_404_PAGE} />
       </Switch>
