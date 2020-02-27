@@ -8,16 +8,22 @@
   "include": ["src/**/*"],
   "references": [
     {
-      "path": "../configuration"
+      "path": "../types"
     },
     {
-      "path": "../components"
+      "path": "../configuration"
     },
     {
       "path": "../decorators"
     },
     {
-      "path": "../types"
+      "path": "../components"
+    },
+    {
+      "path": "../home"
+    },
+    {
+      "path": "../link"
     }
   ]
 }

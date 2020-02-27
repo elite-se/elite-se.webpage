@@ -8,7 +8,16 @@
       "path": "./packages/configuration"
     },
     {
+      "path": "./packages/decorators"
+    },
+    {
       "path": "./packages/components"
+    },
+    {
+      "path": "./packages/home"
+    },
+    {
+      "path": "./packages/link"
     },
     {
       "path": "./packages/frontend"

@@ -1,33 +1,9 @@
 import * as React from 'react';
-import { HomePage } from '../components/pages/HomePage';
-import { LinkPage } from '../components/pages/LinkPage';
+import { HOME_ROUTE } from 'elite-home';
+import { LINK_ROUTE } from 'elite-link';
 import { AppPath, AppRoute, LinkType } from 'elite-types';
 
-/**
- * Route for the Home page of this app
- *
- * TODO: replace with imported version (except of path: property)
- * once HomePage is moved to different package
- */
-const HOME_ROUTE: AppRouteProps = {
-  path: AppPath.HOME,
-  displayName: 'Home',
-  render: props => <HomePage {...props} />,
-};
-
-/**
- * Route for the Link page of this app
- *
- * TODO: replace `with imported version (except of path: property
- * once LinkPage is moved to different package)
- */
-const LINK_ROUTE: AppRouteProps = {
-  path: AppPath.LINK,
-  displayName: 'Useful Links',
-  render: props => <LinkPage {...props} />,
-};
-
-export const APP_ROUTES: AppRouteProps[] = [HOME_ROUTE, LINK_ROUTE];
+export const APP_ROUTES: AppRoute[] = [HOME_ROUTE, LINK_ROUTE];
 
 /**
  * Retrieves the url which other pages can use to link to a certain
