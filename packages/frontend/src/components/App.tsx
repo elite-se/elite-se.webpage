@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { hot } from 'react-hot-loader';
-import { Route, Switch } from 'react-router';
-import { Router } from 'react-router-dom';
-import { APP_ROUTES, ERROR_404_PAGE } from '../util/approutes';
-import history from '../util/history';
+import { getConfiguration } from 'elite-configuration';
 import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
-import { getConfiguration } from 'elite-configuration';
+import * as React from 'react';
+import { hot } from 'react-hot-loader';
+import { Redirect, Route, Switch } from 'react-router';
+import { Router } from 'react-router-dom';
+import history from '../util/history';
+import { AppPath, APP_ROUTES } from '../util/routes';
 
+// Global bootstrap: install subsystems and load configuration
 const configuration: Configuration = getConfiguration();
 
 export const AppComponent = () => (
@@ -17,7 +18,8 @@ export const AppComponent = () => (
         {APP_ROUTES.map((routeProps, index) => (
           <Route key={index} {...routeProps} />
         ))}
-        <Route {...ERROR_404_PAGE} />
+        {/* Error 404 Fallback */}
+        <Redirect to={AppPath.HOME} />
       </Switch>
     </Router>
   </FeatureFlagsProvider>
