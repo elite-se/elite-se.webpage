@@ -5,12 +5,13 @@ import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
 import history from './util/history';
-import { APP_ROUTES } from './util/routes';
+import { APP_ROUTES, getDisplayNameForRoute } from './util/routes';
 import { ErrorBoundaryComponent, FeatureFlagsProvider } from 'elite-components';
 import { Divider } from '@material-ui/core';
 import { LinkDirectory } from './util/linkDirectory';
+import { NavigationBar } from 'components/general/NavigationBar';
 
-// Global bootstrap: install subsystems and load configuration
+// Global bootstrap: load configuration
 const configuration: Configuration = getConfiguration();
 
 export const AppComponent = () => (
@@ -18,11 +19,14 @@ export const AppComponent = () => (
     <Router history={history}>
       <ErrorBoundaryComponent>
         <Switch>
-          {APP_ROUTES.map((routeProps, index) => (
-            <Route key={index} {...routeProps} />
+          {APP_ROUTES.map((route, index) => (
+            <>
+              <NavigationBar title={getDisplayNameForRoute(route)} />
+              <Route key={index} {...route} />
+            </>
           ))}
           {/* Error 404 Fallback */}
-          <Redirect to={AppPath.HOME} />
+          <Route path={AppPath.ERROR} render={() => <Redirect to={AppPath.HOME} />} />
         </Switch>
         <Divider />
         <LinkDirectory />
