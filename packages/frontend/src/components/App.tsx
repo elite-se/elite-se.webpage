@@ -6,9 +6,9 @@ import history from '../util/history';
 import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
 import { getConfiguration } from 'elite-configuration';
-import { APP_ROUTES } from '../util/routing';
+import { getAllRegisteredAppRoutes } from '../util/routing';
 
-// Files must be required for decorator to work
+// Files must be required (early!) for decorator to work
 require('../components/pages/HomePage');
 require('../components/pages/LinkPage');
 
@@ -18,7 +18,7 @@ export const AppComponent = () => (
   <FeatureFlagsProvider value={configuration.featureMap}>
     <Router history={history}>
       <Switch>
-        {APP_ROUTES.map((routeProps, index) => (
+        {getAllRegisteredAppRoutes().map((routeProps, index) => (
           <Route key={index} {...routeProps} />
         ))}
         {/* Error 404 Fallback */}

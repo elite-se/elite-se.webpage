@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { APP_ROUTES, getLinkForPage, getLinkDisplayNameForPage } from '../../../util/routing';
+import { getLinkForRoute, getDisplayNameForRoute, getAllRegisteredAppRoutes } from '../../../util/routing';
 
 export const LinkDirectory = () => (
   <ul>
-    {APP_ROUTES.map((route, index) => (
+    {getAllRegisteredAppRoutes().map((route, index) => (
       <li key={index}>
-        <Link to={getLinkForPage(route)}>{getLinkDisplayNameForPage(route)}</Link>
+        <Link to={getLinkForRoute(route)}>{getDisplayNameForRoute(route)}</Link>
       </li>
     ))}
   </ul>
