@@ -1,18 +1,19 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['react-hot-loader/patch', './src/index.tsx'],
+    app: ['./src/index.tsx'],
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: {
           loader: require.resolve('ts-loader'),
+          options: {
+            projectReferences: true,
+          },
         },
         exclude: /node_modules/,
       },
@@ -46,9 +47,6 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     symlinks: true,
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
   output: {
     publicPath: '/',
@@ -60,22 +58,7 @@ module.exports = {
       template: path.resolve(__dirname, 'src/index.html'),
       inject: 'body',
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
   ],
-  devServer: {
-    hot: true,
-    port: 8080,
-    disableHostCheck: true,
-    historyApiFallback: true,
-    watchOptions: {
-      ignored: /node_modules|\.jsx?$|\.d.ts$/,
-    },
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': '*',
-    },
-  },
   node: {
     module: 'empty',
     dgram: 'empty',

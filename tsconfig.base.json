@@ -20,22 +20,15 @@
     "moduleResolution": "node",
     "strict": true,
     "importHelpers": true,
-    "sourceMap": true,
-    "declarationMap": true,
+    "sourceMap": false,
+    "declarationMap": false,
     "declaration": true,
     "composite": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "exclude": [
-    "./node_modules",
-    "./packages/*/node_modules",
-    "./packages/*/dist"
-  ]
+  "exclude": ["./node_modules", "./packages/*/node_modules", "./packages/*/dist"]
 }
