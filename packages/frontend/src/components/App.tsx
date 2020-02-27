@@ -6,9 +6,11 @@ import history from '../util/history';
 import { FeatureFlagsProvider } from 'elite-feature-flags';
 import { Configuration } from 'elite-types';
 import { getConfiguration } from 'elite-configuration';
-import { getAllRegisteredAppRoutes } from '../util/routing';
+import { getAllRegisteredAppRoutes } from 'elite-routing';
+import { AppPaths } from '../util/routes';
 
 // Files must be required (early!) for decorator to work
+// TODO: move to routes.ts
 require('../components/pages/HomePage');
 require('../components/pages/LinkPage');
 
@@ -22,7 +24,7 @@ export const AppComponent = () => (
           <Route key={index} {...routeProps} />
         ))}
         {/* Error 404 Fallback */}
-        <Redirect to={'/home'} />
+        <Redirect to={AppPaths.HOME} />
       </Switch>
     </Router>
   </FeatureFlagsProvider>

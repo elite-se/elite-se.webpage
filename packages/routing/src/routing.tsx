@@ -63,7 +63,6 @@ export function registerAppRoute(props: AppRouteProps & Required<Pick<AppRoutePr
   console.log('added route ', props.path);
 }
 
-// TODO: replace with proper container/service class
 /**
  * Retrieves the url which other pages can use
  * to link to a certain route
@@ -73,7 +72,6 @@ export function getLinkForRoute(route: AppRouteProps): LinkType {
   return route.link || route.path;
 }
 
-// TODO: replace with proper container/service class
 /**
  * Retrieves the humand readable link title/displayed name
  * for a given route

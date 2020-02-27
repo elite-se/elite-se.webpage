@@ -8,15 +8,6 @@
   "include": ["src/**/*"],
   "references": [
     {
-      "path": "../configuration"
-    },
-    {
-      "path": "../feature-flags"
-    },
-    {
-      "path": "../routing"
-    },
-    {
       "path": "../types"
     }
   ]

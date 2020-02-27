@@ -1,13 +1,14 @@
 import { Divider, List } from '@material-ui/core';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Routed } from '../../util/routing';
+import { Routed } from 'elite-routing';
+import { AppPaths } from '../../util/routes';
 import { LinkListItem } from '../general/LinkListItem';
 import { LinkDirectory } from './support/LinkDirectory';
 
 export interface LinkPageProps extends RouteComponentProps {}
 
-@Routed({ path: '/link', displayName: 'Useful Links' })
+@Routed({ path: AppPaths.LINK, displayName: 'Useful Links' })
 export class LinkPage extends React.PureComponent<LinkPageProps> {
   render() {
     return (
