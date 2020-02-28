@@ -3,6 +3,7 @@ import { LinkListItem } from 'elite-components';
 import { AppPath, AppRoute } from 'elite-types';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import LinkIcon from '@material-ui/icons/Link';
 
 export interface LinkPageProps extends RouteComponentProps {}
 
@@ -12,6 +13,7 @@ export interface LinkPageProps extends RouteComponentProps {}
 export const LINK_ROUTE: AppRoute = {
   path: AppPath.LINK,
   displayName: 'Useful Links',
+  icon: <LinkIcon />,
   render: props => <LinkPage {...props} />,
 };
 

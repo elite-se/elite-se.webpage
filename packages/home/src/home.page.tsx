@@ -2,6 +2,7 @@ import { FeatureFlag } from 'elite-components';
 import { AppPath, AppRoute } from 'elite-types';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import HomeIcon from '@material-ui/icons/Home';
 
 export interface HomePageProps extends RouteComponentProps {}
 
@@ -11,6 +12,7 @@ export interface HomePageProps extends RouteComponentProps {}
 export const HOME_ROUTE: AppRoute = {
   path: AppPath.HOME,
   displayName: 'Home',
+  icon: <HomeIcon />,
   render: props => <HomePage {...props} />,
 };
 
