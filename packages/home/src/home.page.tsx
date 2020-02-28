@@ -1,7 +1,7 @@
 import { FeatureFlag } from 'elite-components';
+import { AppPath, AppRoute } from 'elite-types';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { AppPath, AppRoute } from 'elite-types';
 
 export interface HomePageProps extends RouteComponentProps {}
 
@@ -16,12 +16,8 @@ export const HOME_ROUTE: AppRoute = {
 
 export const HomePage = (props: HomePageProps) => {
   return (
-    <>
-      {/* <NavigationBar /> */}
-
-      <FeatureFlag featureName="under-construction-message">
-        Elite Sexyz is currently under construction. See discord main channel for more information
-      </FeatureFlag>
-    </>
+    <FeatureFlag featureName="under-construction-message">
+      Elite Sexyz is currently under construction. See discord main channel for more information
+    </FeatureFlag>
   );
 };

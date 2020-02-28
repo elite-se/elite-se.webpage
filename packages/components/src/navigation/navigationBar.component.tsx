@@ -1,20 +1,8 @@
 import * as React from 'react';
-import {
-  AppBar,
-  Toolbar,
-  makeStyles,
-  fade,
-  IconButton,
-  Theme,
-  createStyles,
-  Typography,
-  Button,
-} from '@material-ui/core';
+import { AppBar, Toolbar, makeStyles, IconButton, Theme, createStyles, Typography, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { RouteDrawer } from './RouteDrawer';
-import h from '../../../util/history';
-import { getLinkForPath } from 'util/routes';
-import { AppPath } from 'elite-types';
+import { RouteDrawer } from './routeDrawer.component';
+import { AppRoute } from 'elite-types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,13 +19,27 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface NavigationBarProps {
-  readonly title?: string;
+  /** Title displayed by in navigation bar */
+  readonly title: string;
+
+  /** Callback used by navigation bar to navigate to a route */
+  readonly onNavigateTo: (route: AppRoute) => void;
+
+  /** Routes that the user may navigate to */
+  readonly routes: AppRoute[];
 }
 
+/**
+ * NavigationBar displays a material-ui AppBar in combination with a Drawer
+ * component which the User can use to navigate the available routes
+ *
+ * @param props See NavigationBarProps
+ */
 export const NavigationBar = (props: NavigationBarProps) => {
   const classes = useStyles();
   const [routeDrawerOpen, setRouteDrawerOpen] = React.useState(false);
-  const title = props.title || getLinkForPath(h.location.pathname as AppPath);
+
+  const title = props.title;
 
   return (
     <>
@@ -62,6 +64,8 @@ export const NavigationBar = (props: NavigationBarProps) => {
       </div>
 
       <RouteDrawer
+        routes={props.routes}
+        onNavigateTo={props.onNavigateTo}
         isOpen={routeDrawerOpen}
         onOpen={() => setRouteDrawerOpen(true)}
         onClose={() => setRouteDrawerOpen(false)}

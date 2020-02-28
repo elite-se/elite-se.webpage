@@ -1,6 +1,6 @@
-import { ErrorBoundaryComponent, FeatureFlagsProvider } from 'elite-components';
+import { ErrorBoundaryComponent, FeatureFlagsProvider, NavigationBar } from 'elite-components';
 import { getConfiguration } from 'elite-configuration';
-import { AppPath, Configuration } from 'elite-types';
+import { AppPath, Configuration, getDisplayNameForRoute, getLinkForRoute } from 'elite-types';
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router';
@@ -17,7 +17,20 @@ export const AppComponent = () => (
       <ErrorBoundaryComponent>
         <Switch>
           {APP_ROUTES.map((route, index) => (
-            <Route key={index} {...route} />
+            <Route
+              key={index}
+              {...route}
+              render={props => (
+                <>
+                  <NavigationBar
+                    routes={APP_ROUTES}
+                    title={getDisplayNameForRoute(route)}
+                    onNavigateTo={r => history.push(getLinkForRoute(r))}
+                  />
+                  {route.render(props)}
+                </>
+              )}
+            />
           ))}
           {/* Error 404 Fallback */}
           <Route path={AppPath.ERROR} render={() => <Redirect to={AppPath.HOME} />} />
