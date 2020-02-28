@@ -1,64 +1,9 @@
 import * as React from 'react';
-import { HomePage } from '../components/pages/HomePage';
-import { LinkPage } from '../components/pages/LinkPage';
-import { RouteProps } from 'react-router';
+import { HOME_ROUTE } from 'elite-home';
+import { LINK_ROUTE } from 'elite-link';
+import { AppPath, AppRoute, LinkType } from 'elite-types';
 
-// If necessary, add support for: H.LocationDescriptor | ((location: H.Location) => H.LocationDescriptor);
-type LinkType = string;
-
-/**
- * Each Approute can have a specific link (i.e., path with filled parameter placeholders),
- * a display Name, i.e., text of the link and a nonoptional (!) path
- *
- * TODO: move to types package to be able to move app routes to their own
- * individual packages
- */
-export interface AppRouteProps extends RouteProps {
-  // Use this if the link target differs from the path specification,
-  // i.e., if the path url contains paramter specifications etc
-  readonly link?: LinkType;
-
-  // link text (Human readable!)
-  readonly displayName?: string;
-
-  // AppRoutes must have a path - deoptionalize this property
-  readonly path: AppPath;
-}
-
-/**
- * All available paths in this app
- */
-export enum AppPath {
-  HOME = '/home',
-  LINK = '/link',
-  ERROR = '/',
-}
-
-/**
- * Route for the Home page of this app
- *
- * TODO: replace with imported version (except of path: property)
- * once HomePage is moved to different package
- */
-const HOME_ROUTE: AppRouteProps = {
-  path: AppPath.HOME,
-  displayName: 'Home',
-  render: props => <HomePage {...props} />,
-};
-
-/**
- * Route for the Link page of this app
- *
- * TODO: replace `with imported version (except of path: property
- * once LinkPage is moved to different package)
- */
-const LINK_ROUTE: AppRouteProps = {
-  path: AppPath.LINK,
-  displayName: 'Useful Links',
-  render: props => <LinkPage {...props} />,
-};
-
-export const APP_ROUTES: AppRouteProps[] = [HOME_ROUTE, LINK_ROUTE];
+export const APP_ROUTES: AppRoute[] = [HOME_ROUTE, LINK_ROUTE];
 
 /**
  * Retrieves the url which other pages can use to link to a certain
@@ -66,7 +11,7 @@ export const APP_ROUTES: AppRouteProps[] = [HOME_ROUTE, LINK_ROUTE];
  *
  * @param route
  */
-export function getLinkForRoute(route: AppRouteProps): LinkType {
+export function getLinkForRoute(route: AppRoute): LinkType {
   return route.link || route.path;
 }
 
@@ -89,7 +34,7 @@ export function getLinkForPath(path: AppPath): LinkType {
  *
  * @param route
  */
-export function getDisplayNameForRoute(route: AppRouteProps): string {
+export function getDisplayNameForRoute(route: AppRoute): string {
   return route.displayName || getLinkForRoute(route);
 }
 

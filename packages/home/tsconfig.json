@@ -9,21 +9,6 @@
   "references": [
     {
       "path": "../types"
-    },
-    {
-      "path": "../configuration"
-    },
-    {
-      "path": "../decorators"
-    },
-    {
-      "path": "../components"
-    },
-    {
-      "path": "../home"
-    },
-    {
-      "path": "../link"
     }
   ]
 }

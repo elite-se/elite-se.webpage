@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.11.0",
-    "@types/react": "^16.9.16",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
     "cross-env": "^6.0.3",
