@@ -1,16 +1,14 @@
+import { ErrorBoundaryComponent, FeatureFlagsProvider, NavigationBar } from 'elite-components';
 import { getConfiguration } from 'elite-configuration';
-import { AppPath, Configuration } from 'elite-types';
+import { AppPath, Configuration, getDisplayNameForRoute, getLinkForRoute } from 'elite-types';
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
 import history from './util/history';
 import { APP_ROUTES } from './util/routes';
-import { ErrorBoundaryComponent, FeatureFlagsProvider } from 'elite-components';
-import { Divider } from '@material-ui/core';
-import { LinkDirectory } from './util/linkDirectory';
 
-// Global bootstrap: install subsystems and load configuration
+// Global bootstrap: load configuration
 const configuration: Configuration = getConfiguration();
 
 export const AppComponent = () => (
@@ -18,14 +16,25 @@ export const AppComponent = () => (
     <Router history={history}>
       <ErrorBoundaryComponent>
         <Switch>
-          {APP_ROUTES.map((routeProps, index) => (
-            <Route key={index} {...routeProps} />
+          {APP_ROUTES.map((route, index) => (
+            <Route
+              key={index}
+              {...route}
+              render={props => (
+                <>
+                  <NavigationBar
+                    routes={APP_ROUTES}
+                    title={getDisplayNameForRoute(route)}
+                    onNavigateTo={r => history.push(getLinkForRoute(r))}
+                  />
+                  {route.render(props)}
+                </>
+              )}
+            />
           ))}
           {/* Error 404 Fallback */}
-          <Redirect to={AppPath.HOME} />
+          <Route path={AppPath.ERROR} render={() => <Redirect to={AppPath.HOME} />} />
         </Switch>
-        <Divider />
-        <LinkDirectory />
       </ErrorBoundaryComponent>
     </Router>
   </FeatureFlagsProvider>
