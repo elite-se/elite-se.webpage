@@ -81,8 +81,8 @@ const links: LinkListItemProps[] = [
 
 export const LinkPage = (props: LinkPageProps) => (
   <List>
-    {links.map(link => (
-      <LinkListItem {...link} />
+    {links.map((link, index) => (
+      <LinkListItem key={index} {...link} />
     ))}
   </List>
 );
