@@ -3,6 +3,7 @@ import { AppBar, Toolbar, makeStyles, IconButton, Theme, createStyles, Typograph
 import MenuIcon from '@material-ui/icons/Menu';
 import { RouteDrawer } from './routeDrawer.component';
 import { AppRoute } from 'elite-types';
+import { FeatureMenu } from '../general/featureMenu.component';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,6 +59,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
             <Typography className={classes.title} variant={'h6'} noWrap>
               {title}
             </Typography>
+            <FeatureMenu />
             <Button color={'inherit'}>Login</Button>
           </Toolbar>
         </AppBar>
