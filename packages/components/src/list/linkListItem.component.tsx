@@ -5,6 +5,7 @@ import LinkIcon from '@material-ui/icons/Link';
 export interface LinkListItemProps {
   readonly href: string;
   readonly title: string;
+  readonly description?: string;
 }
 
 export const LinkListItem = (props: LinkListItemProps) => (
@@ -12,9 +13,13 @@ export const LinkListItem = (props: LinkListItemProps) => (
     <ListItemIcon>
       <LinkIcon />
     </ListItemIcon>
-    <ListItemText primary={
-      <Link href={props.href} target={"_blank"}>
-        {props.title}
-      </Link>} />
+    <ListItemText
+      primary={
+        <Link href={props.href} target={'_blank'}>
+          {props.title}
+        </Link>
+      }
+      secondary={props.description}
+    />
   </ListItem>
 );
