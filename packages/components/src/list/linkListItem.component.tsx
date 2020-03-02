@@ -1,22 +1,22 @@
-import { Avatar, Link, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Link, ListItem, ListItemIcon, ListItemText, Paper } from '@material-ui/core';
 import * as React from 'react';
 
 export interface LinkListItemProps {
   readonly href: string;
   readonly title: string;
   readonly description?: string;
-  readonly faviconURL?: string;
+  readonly avatarSrcURL?: string;
 }
 
 export const LinkListItem = (props: LinkListItemProps) => {
-  const { href, title, description, faviconURL } = props;
+  const { href, title, description, avatarSrcURL } = props;
 
   return (
     <ListItem button={true}>
       <ListItemIcon>
-        <Avatar variant={'square'} src={faviconURL || `https://www.google.com/s2/favicons?domain=${href}`}>
-          Icon
-        </Avatar>
+        <Paper elevation={0}>
+          <img src={avatarSrcURL || `https://www.google.com/s2/favicons?domain=${href}`} height={50} width={50} />
+        </Paper>
       </ListItemIcon>
       <ListItemText
         primary={

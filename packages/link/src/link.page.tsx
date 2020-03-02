@@ -25,6 +25,13 @@ const links: LinkListItemProps[] = [
     href: 'https://elite-se.informatik.uni-augsburg.de',
     title: 'Study Programm Homepage',
     description: 'Official webpage of the elite software engineering degree program',
+    avatarSrcURL: 'https://elite-se.informatik.uni-augsburg.de/wp-content/themes/wp-elite/layout/se-logo-2017.png',
+  },
+  {
+    href: 'https://www.elitenetzwerk.bayern.de/elitenetzwerk-home/elitenetzwerk-home/',
+    title: 'Elitenetzwerk Bayern Homepage',
+    description: 'Homepage of the elite network of bavaria, which is involved with this degree program',
+    avatarSrcURL: 'https://www.elitenetzwerk.bayern.de/resources/img/logo_home_de.gif',
   },
   {
     href: 'https://se-study-planner.herokuapp.com',
@@ -35,11 +42,7 @@ const links: LinkListItemProps[] = [
     href: 'https://github.com/elite-se/elite-se.protokolle',
     title: 'Exam Protocols',
     description: "Repository containing protocols from previous se-generation's exams",
-  },
-  {
-    href: 'https://www.elitenetzwerk.bayern.de/elitenetzwerk-home/elitenetzwerk-home/',
-    title: 'Elitenetzwerk Bayern Homepage',
-    description: 'Homepage of the elite network of bavaria, which is involved with this degree program',
+    avatarSrcURL: 'https://github.com/fluidicon.png',
   },
   {
     href: 'https://campus.tum.de',
@@ -50,26 +53,35 @@ const links: LinkListItemProps[] = [
     href: 'https://tools.db.in.tum.de',
     title: 'TUM DB Systems Tools',
     description: 'Useful collection of tools to practice for the Database Systems exam',
+    // avatarSrcURL: 'https://www.professoren.tum.de/fileadmin/w00bgr/www/pics/KemperAlfons2.jpg',
   },
   {
     href: 'https://digicampus.uni-augsburg.de/dispatch.php/my_courses',
     title: 'UNA Digicampus',
     description: 'Digital lecture system of University of Augsburg',
+    avatarSrcURL:
+      'https://media-exp1.licdn.com/dms/image/C4D0BAQH8PtNx4HL53Q/company-logo_200_200/0?e=2159024400&v=beta&t=UslCrixvDs6mvnmH3sAuaBlqwvTjcSyikB-PqSfABF4',
   },
   {
     href: 'https://vibs.uni-augsburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces?chco=y',
     title: 'UNA VIBS Portal',
     description: 'Study management system of University of Augsburg',
+    avatarSrcURL:
+      'https://media-exp1.licdn.com/dms/image/C4D0BAQH8PtNx4HL53Q/company-logo_200_200/0?e=2159024400&v=beta&t=UslCrixvDs6mvnmH3sAuaBlqwvTjcSyikB-PqSfABF4',
   },
   {
     href: 'https://webmail.rz.uni-augsburg.de/?_task=mail&_mbox=INBOX',
     title: 'UNA Webmail',
     description: 'Webmail client of University of Augsburg',
+    avatarSrcURL:
+      'https://media-exp1.licdn.com/dms/image/C4D0BAQH8PtNx4HL53Q/company-logo_200_200/0?e=2159024400&v=beta&t=UslCrixvDs6mvnmH3sAuaBlqwvTjcSyikB-PqSfABF4',
   },
   {
     href: 'https://studiswebstud.zv.uni-augsburg.de/',
     title: 'UNA STUDIS Portal',
     description: 'Exam management system of University of Augsburg',
+    avatarSrcURL:
+      'https://media-exp1.licdn.com/dms/image/C4D0BAQH8PtNx4HL53Q/company-logo_200_200/0?e=2159024400&v=beta&t=UslCrixvDs6mvnmH3sAuaBlqwvTjcSyikB-PqSfABF4',
   },
   {
     href: 'https://www.uni-muenchen.de/lmu-intern/index.html',
