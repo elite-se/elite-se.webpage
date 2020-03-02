@@ -1,2 +1,3 @@
 export * from './errorBoundary.component';
-export * from './featureFlag.component';
+export { FeatureFlag, FeatureFlagsProvider, FeatureToggleProperties } from './featureFlag.component';
+export * from './featureMenu.component';

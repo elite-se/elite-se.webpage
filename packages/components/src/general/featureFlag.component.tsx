@@ -1,7 +1,12 @@
-import React, { PureComponent, createContext, Context } from 'react';
-import { FeatureMap } from 'elite-types';
+import React, { PureComponent, createContext, ReactNode } from 'react';
+import { FeatureMap, FeatureSetterFunction } from 'elite-types';
 
-const FeatureFlags: Context<FeatureMap> = createContext<FeatureMap>({});
+const FeatureFlags = createContext<{ featureMap: FeatureMap } & { setFeatureEnabled: FeatureSetterFunction }>({
+  featureMap: {},
+  setFeatureEnabled: () => {
+    throw new Error("Unimplemented functionality 'setFeatureEnabled' in FeatureFlagsProvider value");
+  },
+});
 
 export interface FeatureToggleProperties {
   readonly inverted?: boolean;
@@ -14,16 +19,16 @@ export class FeatureFlag extends PureComponent<FeatureToggleProperties> {
 
     return (
       <FeatureFlags.Consumer>
-        {(featureMap: FeatureMap) => {
+        {({ featureMap }) => {
           if ((featureMap[featureName] && !inverted) || (!featureMap[featureName] && inverted)) {
             return children;
-          } else {
-            return null;
           }
+          return null;
         }}
       </FeatureFlags.Consumer>
     );
   }
 }
 
+export const FeatureFlagsConsumer = FeatureFlags.Consumer;
 export const FeatureFlagsProvider = FeatureFlags.Provider;
