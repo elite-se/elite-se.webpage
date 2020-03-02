@@ -1,5 +1,5 @@
 import { FormControlLabel, IconButton, Menu, MenuItem, Switch, Typography } from '@material-ui/core';
-import FeatureMenuIcon from '@material-ui/icons/Build';
+import FeatureMenuIcon from '@material-ui/icons/Toys';
 import * as React from 'react';
 import { FeatureFlagsConsumer } from './featureFlag.component';
 
