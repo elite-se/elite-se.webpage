@@ -8,7 +8,7 @@ export interface HomePageProps extends RouteComponentProps {}
 export const HomePage = (props: HomePageProps) => (
   <>
     <h1>Main Page</h1>
-    Elite Sexyz is currently under construction. See discord main channel for more information
+    Elite Sexyz is sexy.
     <Divider />
     <LinkDirectory />
   </>
